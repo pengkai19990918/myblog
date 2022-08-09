@@ -1,13 +1,25 @@
 import { defineConfig } from '@umijs/max';
-
+// umi4 max 的东西几乎都要显式开启 参考：https://umijs.org/docs/introduce/upgrade-to-umi-4
 export default defineConfig({
   antd: {},
   access: {},
   model: {},
   initialState: {},
+  mock: {
+    include: ['src/pages/**/_mock.ts'],
+  },
   request: {},
+  dva: {},
   layout: {
     title: '@umijs/max',
+    locale: true,
+  },
+  locale: {
+    // default zh-CN
+    default: 'zh-CN',
+    antd: true,
+    // default true, when it is true, will use `navigator.language` overwrite default
+    baseNavigator: true,
   },
   routes: [
     {
